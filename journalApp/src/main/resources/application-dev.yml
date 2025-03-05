@@ -1,0 +1,29 @@
+# this is a development profile
+
+spring:
+  application:
+    name: journalApp
+
+  data:
+    mongodb:
+      uri: mongodb+srv://ramsharmaperfectmoker:9afuRkuUfLjMo87Y@cluster0.nvzvo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: journaldb
+      auto-index-creation: true
+
+
+  #mySQL configuration
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/journalEntry
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+server:
+  port: 8080
+
