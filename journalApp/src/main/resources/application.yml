@@ -1,0 +1,7 @@
+
+# this file is used to active and deactive the production and the development profiles
+# it means here we can choose which profile we are going to use
+
+spring:
+  profiles:
+    active: dev
