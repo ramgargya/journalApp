@@ -65,5 +65,10 @@ public class UserController {
         return ResponseEntity.ok("User Deleted Succesfully");
     }
 
+    @GetMapping
+    public ResponseEntity<?>  greetngs() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return new ResponseEntity<>("Hi" + authentication.getName(), HttpStatus.OK);
+    }
 
 }

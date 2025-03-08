@@ -4,6 +4,8 @@ import com.engineeringdigest.journalApp.entity.JournalEntry;
 import com.engineeringdigest.journalApp.entity.User;
 import com.engineeringdigest.journalApp.repository.JournalEntryRepository;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,15 +23,22 @@ public class JournalEntryService {
     @Autowired
     private UserService userService;
 
+    // logging
+    private static final Logger logger = LoggerFactory.getLogger(JournalEntryService.class);
+
     // Save an Entry in the database
     @Transactional
     public void saveEntry(JournalEntry journalEntry, String userName) {
-        journalEntry.setDate(LocalDateTime.now());
-        User user = userService.findByUsername(userName); // first it will find the user using the userName
-        JournalEntry saved = journalEntryRepository.save(journalEntry); // then save the journalEntry in the journaldb
+        try {
+            journalEntry.setDate(LocalDateTime.now());
+            User user = userService.findByUsername(userName); // first it will find the user using the userName
+            JournalEntry saved = journalEntryRepository.save(journalEntry); // then save the journalEntry in the journaldb
 
-        user.getJournalEntries().add(saved); // then save the reference of the saved journalEntry in the user's journalEntries List
-        userService.saveUser(user); // then we will save the user using userService
+            user.getJournalEntries().add(saved); // then save the reference of the saved journalEntry in the user's journalEntries List
+            userService.saveUser(user); // then we will save the user using userService
+        } catch (Exception e) {
+            throw new RuntimeException("An error occurred while saving the entry: ", e);
+        }
     }
 
     public void saveEntry(JournalEntry journalEntry) {
