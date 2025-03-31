@@ -62,7 +62,7 @@ public class UserController {
 
         userService.deleteByUserName(userName);
 
-        return ResponseEntity.ok("User Deleted Succesfully");
+        return ResponseEntity.ok("User Deleted Successfully");
     }
 
     @GetMapping

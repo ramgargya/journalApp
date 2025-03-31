@@ -7,3 +7,14 @@ spring:
     active: dev
 
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ramsharmaperfectmoker@gmail.com
+    password: vtua dmfl driw xlef
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: ture

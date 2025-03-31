@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.List;
 
-public class UserRepositoryimpl {
+public class UserRepositoryImpl {
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -21,8 +21,8 @@ public class UserRepositoryimpl {
         query.addCriteria(Criteria.where("email").regex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\n"));
         query.addCriteria(Criteria.where("sentimentAnalysis").is(true));
 
-
         List<User> users = mongoTemplate.find(query, User.class);
+
         return users;
     }
 }

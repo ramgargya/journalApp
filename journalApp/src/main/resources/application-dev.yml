@@ -1,6 +1,11 @@
 # this is a development profile
 
 spring:
+  redis:
+    host:
+    port:
+
+
   data:
     mongodb:
       uri: mongodb+srv://ramsharmaperfectmoker:9afuRkuUfLjMo87Y@cluster0.nvzvo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
