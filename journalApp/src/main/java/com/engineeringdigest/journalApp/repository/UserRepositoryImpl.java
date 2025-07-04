@@ -1,6 +1,7 @@
 package com.engineeringdigest.journalApp.repository;
 
 import com.engineeringdigest.journalApp.entity.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -8,9 +9,10 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 public class UserRepositoryImpl {
 
-    @Autowired
+
     private MongoTemplate mongoTemplate;
 
     public List<User> getUserForSA() {

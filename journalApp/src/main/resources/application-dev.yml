@@ -2,20 +2,25 @@
 
 spring:
   redis:
-    host:
-    port:
-
-
   data:
     mongodb:
-      uri: mongodb+srv://ramsharmaperfectmoker:9afuRkuUfLjMo87Y@cluster0.nvzvo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      uri: ${mongodb_uri}
       database: journaldb
       auto-index-creation: true
+    redis:
+      port: 6379
+
+
+
+jwt:
+  secret:
+    key: ${jwt_secret_key}
 
 
 weather:
   api:
-    key: 1228b9f0aed4480890d95235252701
+    key: ${weather_api_key}
+
   #mySQL configuration
 #  jpa:
 #    hibernate:

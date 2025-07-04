@@ -27,7 +27,7 @@ public class User {
     private String userName;
 
     private String email;
-    private Boolean sentimentAnalysis;
+//    private Boolean sentimentAnalysis;
 
     @NonNull
     private String password;
@@ -37,6 +37,5 @@ public class User {
 
     // roles of user -> user, admin
     private List<String> roles;
-
 
 }
